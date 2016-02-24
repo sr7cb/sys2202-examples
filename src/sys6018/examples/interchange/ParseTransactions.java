@@ -57,7 +57,7 @@ public class ParseTransactions {
         	Transaction transaction = new Transaction(id, date, amount); 
         	transactions.add(transaction);
         	
-        	System.out.println("Read transaction:  " + transaction);
+        	System.err.println("Read transaction:  " + transaction);
         }
         
         System.err.println("Read " + transactions.size() + " transactions.");
