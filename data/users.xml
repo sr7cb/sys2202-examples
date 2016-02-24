@@ -1,0 +1,23 @@
+<users>
+  <user id="1">
+    <name>
+      <first>Matthew</first>
+      <last>Gerber</last>
+    </name>
+    <date_of_birth>1982-09-21</date_of_birth>
+    <addresses>
+      <address>123 Foo Lane, Charlottesville, VA</address>
+      <address>456 XYZ Road, Richmond, VA</address>
+    </addresses>
+  </user>
+  <user id="2">
+    <name>
+      <first>Jane</first>
+      <last>Doe</last>
+    </name>
+    <date_of_birth>1982-10-22</date_of_birth>
+    <addresses>
+      <address>345 Foo Lane, Charlottesville, VA</address>
+    </addresses>
+  </user>
+</users>
