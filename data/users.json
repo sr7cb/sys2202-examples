@@ -1,41 +1,26 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": 1,
       "name": {
         "first": "Matthew",
         "last": "Gerber"
       },
-      "height_inches": 72,
+      "date_of_birth": "1982-09-21",
       "addresses": [
-        {
-          "street": "123 W. Main",
-          "city": "Charlottesville",
-          "state": "Virginia",
-          "zip": "22904"
-        },
-        {
-          "street": "36 Roth Rd.",
-          "city": "Waynesboro",
-          "state": "Virginia",
-          "zip": "22980"
-        }
+        "123 W. Main, Charlottesville, VA 22904",
+        "36 Roth Rd., Waynesboro, VA 22980"
       ]
     },
     {
-      "id": "2",
+      "id": 2,
       "name": {
         "first": "Jane",
         "last": "Doe"
       },
-      "height_inches": 64,
+      "date_of_birth": "1986-03-23",
       "addresses": [
-        {
-          "street": "543 W. Main",
-          "city": "Charlottesville",
-          "state": "Virginia",
-          "zip": "22904"
-        }
+        "543 W. Main, Charlottesville, VA 22904"
       ]
     }
   ]
