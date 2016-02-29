@@ -22,6 +22,6 @@ public class User {
 	
 	public String toString() {
 		
-		return "User " + id + ":  " + firstName + " " + lastName; 
+		return "User " + id + ":  " + firstName + " " + lastName + " (DOB:  " + dateOfBirth + ", " + addresses.size() + " addresses)"; 
 	}
 }
