@@ -1,4 +1,4 @@
-package sys6018.examples.homework4;
+package sys2202.examples.homework4;
 
 import java.io.BufferedWriter;
 import java.io.File;

@@ -1,4 +1,4 @@
-package sys6018.examples.interchange;
+package sys2202.examples.interchange.json;
 
 import java.io.FileReader;
 import java.time.LocalDate;
@@ -8,6 +8,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
+import sys2202.examples.interchange.User;
 
 public class ParseUsersJSON {
 

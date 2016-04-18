@@ -1,4 +1,4 @@
-package sys6018.examples.interchange;
+package sys2202.examples.interchange.xml;
 
 import java.io.ByteArrayInputStream;
 import java.time.LocalDate;
@@ -11,6 +11,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
+
+import sys2202.examples.interchange.Transaction;
 
 public class ParseTransactions {
 	

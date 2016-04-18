@@ -1,4 +1,4 @@
-package sys6018.examples.interchange;
+package sys2202.examples.interchange.xml;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -10,6 +10,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+
+import sys2202.examples.interchange.User;
 
 public class ParseUsers {
 
