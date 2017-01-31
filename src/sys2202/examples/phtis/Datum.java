@@ -1,8 +1,8 @@
-package sys2202.examples.homework4;
+package sys2202.examples.phtis;
 
 import java.time.LocalDateTime;
 
-public class Datum {
+public abstract class Datum {
 
 	private String deviceId;
 	private LocalDateTime timestamp;
@@ -16,6 +16,11 @@ public class Datum {
 
 		return timestamp;
 	}
+	
+	public void setTimestamp(LocalDateTime timestamp) {
+		
+		this.timestamp = timestamp;
+	}
 
 	public Datum(String deviceId, LocalDateTime timestamp) {
 
@@ -23,8 +28,10 @@ public class Datum {
 		this.timestamp = timestamp;
 	}
 
-	public Datum Copy() {
-
-		return new Datum(deviceId, timestamp);
+	public abstract Datum Copy();
+	
+	public String toString() {
+		
+		return "Device:  " + deviceId + ", Time:  " + timestamp;
 	}
 }

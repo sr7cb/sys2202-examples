@@ -1,29 +1,28 @@
-package sys2202.examples.homework4;
+package sys2202.examples.phtis;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import org.w3c.dom.*;
-
-public class Main {
+public class MainBadIdea {
 
 	public static void main(String[] args) throws Exception {
 
-		// Step 1: Instantiate data objects
-
-		// Step 2: Write data to XML file
-
-		// Step 3: Read data from XML file
-
-		// Step 4: Write data to JSON file
-
-		// Step 5: Read data from JSON file
-
-		// Step 6: Write data to console to check
+		// let's first see a bad way of structuring our data. create an accelerometer reading of <1,2,3>
+		ArrayList<Float> acceleration = new ArrayList<Float>();
+		acceleration.add(1f);
+		acceleration.add(2f);
+		acceleration.add(3f);
+		
+		// but wait, what about time and the device ID? we cannot add them to the list.
+		LocalDateTime timestamp = LocalDateTime.parse("2017-01-31T11:30");
+		// acceleration.add(timestamp); -- ERROR
+		
+		// okay fine. let's bundle our acceleration reading together with the timestamp.
+		ArrayList<Object> accelerometerDatum = new ArrayList<Object>();
+		accelerometerDatum.add(acceleration);
+		accelerometerDatum.add(timestamp);
+		
+		// print the datum timestamp
+		System.out.println(accelerometerDatum.get(1));
 	}
 }

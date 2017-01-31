@@ -1,4 +1,4 @@
-package sys2202.examples.homework4;
+package sys2202.examples.phtis;
 
 import java.time.LocalDateTime;
 
@@ -6,7 +6,7 @@ public class LocationDatum extends Datum {
 
 	private float latitude;
 	private float longitude;
-	private float accuracy;
+	private float accuracyInMeters;
 	
 	public float getLatitude() {
 		
@@ -18,22 +18,27 @@ public class LocationDatum extends Datum {
 		return longitude;
 	}
 	
-	public float getAccuracy() {
+	public float getAccuracyInMeters() {
 		
-		return accuracy;
+		return accuracyInMeters;
 	}
 	
-	public LocationDatum(float latitude, float longitude, float accuracy, String deviceId, LocalDateTime timestamp)
+	public LocationDatum(String deviceId, LocalDateTime timestamp, float latitude, float longitude, float accuracyInMeters)
 	{
 		super(deviceId, timestamp);
 		
 		this.latitude = latitude;
 		this.longitude = longitude;
-		this.accuracy = accuracy;
+		this.accuracyInMeters = accuracyInMeters;
 	}
 	
 	public Datum Copy() {
 		
-		return new LocationDatum(latitude, longitude, accuracy, getDeviceId(), getTimestamp());
+		return new LocationDatum(getDeviceId(), getTimestamp(), latitude, longitude, accuracyInMeters);
+	}
+	
+	public String toString() {
+		
+		return super.toString() + ", Lat:  " + latitude + ", Lon:  " + longitude + ", Accuracy (m):  " + accuracyInMeters;
 	}
 }

@@ -30,10 +30,10 @@ public class WordCountReducer {
 				wordCount.put(word, 1);
 		}
 
-		inputScanner.close();
-
 		// output final counts to standard output
 		for (String word : wordCount.keySet())
 			System.out.println(word + "\t" + wordCount.get(word));
+		
+		inputScanner.close();
 	}
 }

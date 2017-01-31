@@ -1,4 +1,4 @@
-package sys2202.examples.homework4;
+package sys2202.examples.phtis;
 
 import java.time.LocalDateTime;
 
@@ -23,7 +23,7 @@ public class AccelerometerDatum extends Datum {
 		return z;
 	}
 	
-	public AccelerometerDatum(float x, float y, float z, String deviceId, LocalDateTime timestamp) {
+	public AccelerometerDatum(String deviceId, LocalDateTime timestamp, float x, float y, float z) {
 		
 		super(deviceId, timestamp);
 		
@@ -34,6 +34,11 @@ public class AccelerometerDatum extends Datum {
 	
 	public Datum Copy() {
 		
-		return new AccelerometerDatum(x, y, z, getDeviceId(), getTimestamp());
+		return new AccelerometerDatum(getDeviceId(), getTimestamp(), x, y, z);
+	}
+	
+	public String toString() {
+		
+		return super.toString() + ", X:  " + x + ", Y:  " + y + ", Z:  " + z;
 	}
 }
