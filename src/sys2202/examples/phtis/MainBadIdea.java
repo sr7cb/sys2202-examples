@@ -15,14 +15,14 @@ public class MainBadIdea {
 		
 		// but wait, what about time and the device ID? we cannot add them to the list.
 		LocalDateTime timestamp = LocalDateTime.parse("2017-01-31T11:30");
-		// acceleration.add(timestamp); -- ERROR
+		// acceleration.add(timestamp); // ERROR
 		
-		// okay fine. let's bundle our acceleration reading together with the timestamp.
+		// okay fine. let's bundle our acceleration reading together with the timestamp in a new array.
 		ArrayList<Object> accelerometerDatum = new ArrayList<Object>();
 		accelerometerDatum.add(acceleration);
 		accelerometerDatum.add(timestamp);
 		
-		// print the datum timestamp
-		System.out.println(accelerometerDatum.get(1));
+		// print the datum timestamp -- what an ugly mess!
+		System.out.println(accelerometerDatum.get(1).toString());
 	}
 }
