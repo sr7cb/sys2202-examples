@@ -17,7 +17,7 @@ public class MainGoodIdea {
 		// can't change restricted fields
 		// accelerometerDatum.setDeviceId("2342-234-32-3"); -- ERROR
 		
-		// polymorphism is elegant
+		// polymorphism handles different behaviors of derived classes.
 		Datum locationDatum = new LocationDatum(deviceId, timestamp, 35, -20, 10);
 		System.out.println(locationDatum.toString());
 	}
