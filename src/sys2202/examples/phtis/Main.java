@@ -2,7 +2,7 @@ package sys2202.examples.phtis;
 
 import java.time.LocalDateTime;
 
-public class MainGoodIdea {
+public class Main {
 
 	public static void main(String[] args) {
 
