@@ -15,13 +15,16 @@ public class ParseUsersJSON {
 
 	public static void main(String[] args) throws Exception {
 
-		JsonObject allJSON = new JsonParser().parse(new FileReader("data/users.json")).getAsJsonObject();
+		// parse JSON file
+		FileReader jsonFile = new FileReader("data/users.json");
+		JsonParser jsonParser = new JsonParser(); 
+		JsonObject parsedJSON = jsonParser.parse(jsonFile).getAsJsonObject();
 
 		// store all users in a list
 		ArrayList<User> users = new ArrayList<User>();
 
 		// read each user object into a User object and store in our list
-		JsonArray usersJsonArray = allJSON.getAsJsonArray("users");
+		JsonArray usersJsonArray = parsedJSON.getAsJsonArray("users");
 		for (int i = 0; i < usersJsonArray.size(); ++i) {
 
 			JsonObject userJsonObject = usersJsonArray.get(i).getAsJsonObject();
@@ -48,9 +51,11 @@ public class ParseUsersJSON {
 			JsonArray addressesJsonArray = userJsonObject.getAsJsonArray("addresses");
 			ArrayList<String> addresses = new ArrayList<String>();
 			for (int j = 0; j < addressesJsonArray.size(); ++j) {
+				
 				JsonElement addressJsonElement = addressesJsonArray.get(j);
 				String address = addressJsonElement.getAsString();
 				addresses.add(address);
+				
 			}
 
 			// instantiate user

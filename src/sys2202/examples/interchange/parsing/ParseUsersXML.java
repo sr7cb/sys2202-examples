@@ -18,18 +18,18 @@ public class ParseUsersXML {
 	public static void main(String[] args) throws Exception {
 
 		// parse XML document
-		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 		File xmlFile = new File("data/users.xml");
-		Document parsedXmlDocument = documentBuilder.parse(xmlFile);
+		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();		
+		Document parsedXml = documentBuilder.parse(xmlFile);
 		
 		// store all users in a list
 		ArrayList<User> users = new ArrayList<User>();
 		
 		// read each user element into a User object and store in our list
-		NodeList userNodes = parsedXmlDocument.getElementsByTagName("user");
-		for(int i = 0; i < userNodes.getLength(); ++i)
-		{
+		NodeList userNodes = parsedXml.getElementsByTagName("user");
+		for(int i = 0; i < userNodes.getLength(); ++i) {
+
 			Element userNode = (Element) userNodes.item(i);
 			
 			// get id
@@ -51,11 +51,12 @@ public class ParseUsersXML {
 			ArrayList<String> addresses = new ArrayList<String>();
 			Element addressesNode = (Element) userNode.getElementsByTagName("addresses").item(0);			
 			NodeList addressNodes = addressesNode.getElementsByTagName("address");
-			for(int j = 0; j < addressNodes.getLength(); ++j)
-			{
+			for(int j = 0; j < addressNodes.getLength(); ++j) {
+				
 				Element addressNode = (Element) addressNodes.item(j);
 				String addressString = addressNode.getTextContent();
 				addresses.add(addressString);
+				
 			}
 			
 			// instantiate user and add to list
