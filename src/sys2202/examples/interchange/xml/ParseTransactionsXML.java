@@ -14,7 +14,7 @@ import org.xml.sax.InputSource;
 
 import sys2202.examples.interchange.Transaction;
 
-public class ParseTransactions {
+public class ParseTransactionsXML {
 	
 	public static void main(String[] args) throws Exception {
 		
@@ -59,9 +59,9 @@ public class ParseTransactions {
         	Transaction transaction = new Transaction(id, date, amount); 
         	transactions.add(transaction);
         	
-        	System.err.println("Read transaction:  " + transaction);
+        	System.out.println("Read transaction:  " + transaction);
         }
         
-        System.err.println("Read " + transactions.size() + " transactions.");
+        System.out.println("Read " + transactions.size() + " transactions.");
 	}
 }

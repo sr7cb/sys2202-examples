@@ -13,7 +13,7 @@ import org.w3c.dom.NodeList;
 
 import sys2202.examples.interchange.User;
 
-public class ParseUsers {
+public class ParseUsersXML {
 
 	public static void main(String[] args) throws Exception {
 
@@ -59,9 +59,9 @@ public class ParseUsers {
 			User user = new User(id, firstName, lastName, dateOfBirth, addresses);
 			users.add(user);
 			
-			System.err.println("Read user:  " + user);
+			System.out.println("Read user:  " + user);
 		}
 		
-		System.err.println("Read " + users.size() + " users.");
+		System.out.println("Read " + users.size() + " users.");
 	}
 }
