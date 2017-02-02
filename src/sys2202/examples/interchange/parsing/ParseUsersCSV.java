@@ -1,4 +1,4 @@
-package sys2202.examples.interchange.csv;
+package sys2202.examples.interchange.parsing;
 
 import java.io.FileReader;
 import java.io.IOException;

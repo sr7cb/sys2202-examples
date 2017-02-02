@@ -1,4 +1,4 @@
-package sys2202.examples.interchange.xml;
+package sys2202.examples.interchange.parsing;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -17,14 +17,17 @@ public class ParseUsersXML {
 
 	public static void main(String[] args) throws Exception {
 
-		// parse XML
-		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-		Document doc = dBuilder.parse(new File("data/users.xml"));
+		// parse XML document
+		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+		File xmlFile = new File("data/users.xml");
+		Document parsedXmlDocument = documentBuilder.parse(xmlFile);
 		
-		// read each user element into a User object
-		NodeList userNodes = doc.getElementsByTagName("user");
+		// store all users in a list
 		ArrayList<User> users = new ArrayList<User>();
+		
+		// read each user element into a User object and store in our list
+		NodeList userNodes = parsedXmlDocument.getElementsByTagName("user");
 		for(int i = 0; i < userNodes.getLength(); ++i)
 		{
 			Element userNode = (Element) userNodes.item(i);
@@ -45,8 +48,8 @@ public class ParseUsersXML {
 			LocalDate dateOfBirth = LocalDate.parse(dateOfBirthString);
 			
 			// get addresses
-			Element addressesNode = (Element) userNode.getElementsByTagName("addresses").item(0);
 			ArrayList<String> addresses = new ArrayList<String>();
+			Element addressesNode = (Element) userNode.getElementsByTagName("addresses").item(0);			
 			NodeList addressNodes = addressesNode.getElementsByTagName("address");
 			for(int j = 0; j < addressNodes.getLength(); ++j)
 			{
@@ -55,7 +58,7 @@ public class ParseUsersXML {
 				addresses.add(addressString);
 			}
 			
-			// instantiate user
+			// instantiate user and add to list
 			User user = new User(id, firstName, lastName, dateOfBirth, addresses);
 			users.add(user);
 			

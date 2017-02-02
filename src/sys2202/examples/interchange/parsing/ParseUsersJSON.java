@@ -1,4 +1,4 @@
-package sys2202.examples.interchange.json;
+package sys2202.examples.interchange.parsing;
 
 import java.io.FileReader;
 import java.time.LocalDate;
@@ -17,8 +17,11 @@ public class ParseUsersJSON {
 
 		JsonObject allJSON = new JsonParser().parse(new FileReader("data/users.json")).getAsJsonObject();
 
-		JsonArray usersJsonArray = allJSON.getAsJsonArray("users");
+		// store all users in a list
 		ArrayList<User> users = new ArrayList<User>();
+
+		// read each user object into a User object and store in our list
+		JsonArray usersJsonArray = allJSON.getAsJsonArray("users");
 		for (int i = 0; i < usersJsonArray.size(); ++i) {
 
 			JsonObject userJsonObject = usersJsonArray.get(i).getAsJsonObject();
@@ -44,20 +47,19 @@ public class ParseUsersJSON {
 			// get addresses
 			JsonArray addressesJsonArray = userJsonObject.getAsJsonArray("addresses");
 			ArrayList<String> addresses = new ArrayList<String>();
-			for(int j = 0; j < addressesJsonArray.size(); ++j)
-			{
+			for (int j = 0; j < addressesJsonArray.size(); ++j) {
 				JsonElement addressJsonElement = addressesJsonArray.get(j);
 				String address = addressJsonElement.getAsString();
 				addresses.add(address);
 			}
-			
+
 			// instantiate user
 			User user = new User(id, firstName, lastName, dateOfBirth, addresses);
 			users.add(user);
 
-			System.err.println("Read user:  " + user);
+			System.out.println("Read user:  " + user);
 		}
 
-		System.err.println("Read " + users.size() + " users.");
+		System.out.println("Read " + users.size() + " users.");
 	}
 }
