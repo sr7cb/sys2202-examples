@@ -11,6 +11,26 @@ public class User {
 	private LocalDate dateOfBirth;
 	private ArrayList<String> addresses;
 	
+	public int getId() {
+		return id;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+	
+	public ArrayList<String> getAddresses() {
+		return addresses;
+	}
+	
 	public User(int id, String firstName, String lastName, LocalDate dateOfBirth, ArrayList<String> addresses)
 	{
 		this.id = id;

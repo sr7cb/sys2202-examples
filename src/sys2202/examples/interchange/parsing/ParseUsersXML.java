@@ -20,7 +20,8 @@ public class ParseUsersXML {
 		// parse XML document
 		File xmlFile = new File("data/users.xml");
 		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();		
+		documentBuilderFactory.setValidating(true);
+		DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();	
 		Document parsedXml = documentBuilder.parse(xmlFile);
 		
 		// store all users in a list

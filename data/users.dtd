@@ -1,0 +1,10 @@
+<!ELEMENT users (user*)>
+<!ELEMENT user (name,date_of_birth,addresses)>
+<!ELEMENT name (first,last)>
+<!ELEMENT first (#PCDATA)>
+<!ELEMENT last (#PCDATA)>
+<!ELEMENT date_of_birth (#PCDATA)>
+<!ELEMENT addresses (address+)>
+<!ELEMENT address (#PCDATA)>
+
+<!ATTLIST user id CDATA #REQUIRED>
