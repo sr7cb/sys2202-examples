@@ -1,4 +1,4 @@
-package sys2202.phtis.simulator.smartphone;
+package sys2202.phtis.simulation.smartphone;
 
 import java.util.ArrayList;
 
@@ -45,6 +45,8 @@ public class LocalDataStore implements ISensorChangeListener {
 	public void newReadingHasArrived(Datum datum) {
 
 		data.add(datum);
+		
+		System.out.println("A new datum was added to the local data store:  " + datum);
 
 	}
 }

@@ -1,4 +1,4 @@
-package sys2202.phtis.simulator.smartphone;
+package sys2202.phtis.simulation.smartphone;
 
 import sys2202.phtis.Datum;
 
