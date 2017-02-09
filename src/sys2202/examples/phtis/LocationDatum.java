@@ -4,26 +4,26 @@ import java.time.LocalDateTime;
 
 public class LocationDatum extends Datum {
 
-	private float latitude;
-	private float longitude;
-	private float accuracyInMeters;
+	private double latitude;
+	private double longitude;
+	private double accuracyInMeters;
 	
-	public float getLatitude() {
+	public double getLatitude() {
 		
 		return latitude;
 	}
 	
-	public float getLongitude() {
+	public double getLongitude() {
 		
 		return longitude;
 	}
 	
-	public float getAccuracyInMeters() {
+	public double getAccuracyInMeters() {
 		
 		return accuracyInMeters;
 	}
 	
-	public LocationDatum(String deviceId, LocalDateTime timestamp, float latitude, float longitude, float accuracyInMeters)
+	public LocationDatum(String deviceId, LocalDateTime timestamp, double latitude, double longitude, double accuracyInMeters)
 	{
 		super(deviceId, timestamp);
 		
@@ -40,5 +40,15 @@ public class LocationDatum extends Datum {
 	public String toString() {
 		
 		return super.toString() + ", Lat:  " + latitude + ", Lon:  " + longitude + ", Accuracy (m):  " + accuracyInMeters;
+	}
+	
+	public boolean equals(Object o) {
+		
+		if(o == null || !(o instanceof LocationDatum)) {
+			return false;
+		}
+		
+		LocationDatum location = (LocationDatum)o;
+		return latitude == location.latitude && longitude == location.longitude;		
 	}
 }

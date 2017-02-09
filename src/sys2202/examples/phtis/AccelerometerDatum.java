@@ -4,26 +4,26 @@ import java.time.LocalDateTime;
 
 public class AccelerometerDatum extends Datum {
 
-	private float x;
-	private float y;
-	private float z;
+	private double x;
+	private double y;
+	private double z;
 	
-	public float getX() {
+	public double getX() {
 		
 		return x;
 	}
 	
-	public float getY() {
+	public double getY() {
 		
 		return y;
 	}
 	
-	public float getZ() {
+	public double getZ() {
 		
 		return z;
 	}
 	
-	public AccelerometerDatum(String deviceId, LocalDateTime timestamp, float x, float y, float z) {
+	public AccelerometerDatum(String deviceId, LocalDateTime timestamp, double x, double y, double z) {
 		
 		super(deviceId, timestamp);
 		
@@ -40,5 +40,15 @@ public class AccelerometerDatum extends Datum {
 	public String toString() {
 		
 		return super.toString() + ", X:  " + x + ", Y:  " + y + ", Z:  " + z;
+	}
+	
+	public boolean equals(Object o) {
+		
+		if(o == null || !(o instanceof AccelerometerDatum)) {
+			return false;
+		}
+		
+		AccelerometerDatum acceleration = (AccelerometerDatum)o;
+		return x == acceleration.x && y == acceleration.y && x == acceleration.z;
 	}
 }

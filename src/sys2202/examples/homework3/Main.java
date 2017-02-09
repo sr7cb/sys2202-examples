@@ -1,19 +1,27 @@
 package sys2202.examples.homework3;
 
+import java.util.ArrayList;
+
+import sys2202.examples.phtis.Datum;
+import sys2202.examples.phtis.simulator.smartphone.Smartphone;
+
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
-		// Step 1: Instantiate data objects
-
-		// Step 2: Write data to XML file
-
-		// Step 3: Read data from XML file
-
-		// Step 4: Write data to JSON file
-
-		// Step 5: Read data from JSON file
-
-		// Step 6: Write data to console to check
+		Smartphone smartphone = new Smartphone("msg8u");
+		
+		smartphone.Shake();
+		smartphone.Drive();
+		smartphone.Drive();
+		
+		ArrayList<Datum> data = smartphone.getLocalDataStore().getData();
+		
+		for(int i = 0; i < data.size(); ++i) {
+			
+			Datum datum = data.get(i);
+			System.out.println(datum.toString());
+			
+		}		
 	}
 }
