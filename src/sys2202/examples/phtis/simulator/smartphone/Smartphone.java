@@ -67,6 +67,8 @@ public class Smartphone {
 
 		for (int i = 0; i < 10; ++i) {
 
+			System.out.println("Driving...");
+			
 			LocationDatum currentLocation = locationSensor.getCurrentReading();
 
 			double newLatitude = currentLocation.getLatitude() + 0.001 * random.nextDouble();
