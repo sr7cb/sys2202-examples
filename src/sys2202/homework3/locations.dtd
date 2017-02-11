@@ -1,0 +1,7 @@
+<!ELEMENT locations (LocationDatum+)>
+<!ELEMENT LocationDatum (latitude, longitude, accuracy, deviceId, timestamp)>
+<!ELEMENT latitude (#PCDATA)>
+<!ELEMENT longitude (#PCDATA)>
+<!ELEMENT accuracy (#PCDATA)> 
+<!ELEMENT deviceId (#PCDATA)> 
+<!ELEMENT timestamp (#PCDATA)> 

@@ -1,0 +1,45 @@
+<!DOCTYPE locations SYSTEM "locations.dtd">
+<locations>
+	<LocationDatum>
+		<latitude>88.20695110389167</latitude>
+		<longitude>12.688675222147992</longitude>
+		<accuracy>0.25719799458918424</accuracy>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-11T02:12:21.327</timestamp>
+	</LocationDatum>
+	<LocationDatum>
+		<latitude>88.20733165099544</latitude>
+		<longitude>12.689364944332002</longitude>
+		<accuracy>12.76704336265087</accuracy>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-11T02:12:21.369</timestamp>
+	</LocationDatum>
+	<LocationDatum>
+		<latitude>88.2077124190844</latitude>
+		<longitude>12.68994556086838</longitude>
+		<accuracy>11.254269350157827</accuracy>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-11T02:12:22.370</timestamp>
+	</LocationDatum>
+	<LocationDatum>
+		<latitude>88.20862618484752</latitude>
+		<longitude>12.690530831083489</longitude>
+		<accuracy>12.75120123021695</accuracy>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-11T02:12:23.370</timestamp>
+	</LocationDatum>
+	<LocationDatum>
+		<latitude>88.20952702650487</latitude>
+		<longitude>12.69126717629952</longitude>
+		<accuracy>8.885737282205719</accuracy>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-11T02:12:24.371</timestamp>
+	</LocationDatum>
+	<LocationDatum>
+		<latitude>88.21004936859711</latitude>
+		<longitude>12.692076625868246</longitude>
+		<accuracy>10.31987030451988</accuracy>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-11T02:12:25.372</timestamp>
+	</LocationDatum>
+</locations>

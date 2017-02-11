@@ -28,7 +28,7 @@ public class Server {
 		// Start a JSON file. We're going to write location data to this file
 		// after we extract the location data from the XML file that has been
 		// passed into this method.
-		File jsonFile = new File("src/sys2202/examples/homework3/locations.json");
+		File jsonFile = new File("src/sys2202/homework3/locations.json");
 		PrintWriter jsonFileWriter = new PrintWriter(jsonFile);
 
 		// Set up an XML parser and parse the XML file that has been passed to
@@ -57,7 +57,32 @@ public class Server {
 		//
 		// YOUR CODE:  Iterate through the parsed XML document (parsedXml) and write the equivalent 
 		// JSON to file using jsonFileWriter.
-		
+			NodeList nl = parsedXml.getElementsByTagName("*");
+			jsonFileWriter.write("{\n\t\"locations\":{ \n");
+			jsonFileWriter.write(" \t\t\"LocationDatum\":[{ \n");
+			for(int i = 0; i < nl.getLength(); i++){
+				Element el = (Element)nl.item(i);
+			
+				if(el.getNodeName().contains("LocationDatum")){
+					jsonFileWriter.write("\t\t\t\"" + "latitude\":" + "\"" +
+				el.getElementsByTagName("latitude").item(0).getTextContent()+ "\"," + "\n");
+					jsonFileWriter.write("\t\t\t\"" + "longitude\":" +  "\"" +
+							el.getElementsByTagName("longitude").item(0).getTextContent() + "\"," + "\n");
+					jsonFileWriter.write("\t\t\t\"" + "accuracy\":" + "\"" +
+							el.getElementsByTagName("accuracy").item(0).getTextContent()+ "\","+ "\n");
+					jsonFileWriter.write("\t\t\t\"" + "deviceId\":" + "\"" +
+							el.getElementsByTagName("deviceId").item(0).getTextContent()+ "\","+ "\n");
+					jsonFileWriter.write("\t\t\t\"" + "timestamp\":" + "\"" +
+							el.getElementsByTagName("timestamp").item(0).getTextContent()+ "\""+ "\n");
+					if(i < 31) {
+					jsonFileWriter.write("\t\t\t},{\n");
+					}
+				}
+				
+			}
+			jsonFileWriter.write("\t\t}] \n");
+			jsonFileWriter.write("\t} \n");
+			jsonFileWriter.write("} \n");
 		// ...
 		// ...
 		// ...

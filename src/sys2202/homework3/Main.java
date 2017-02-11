@@ -16,7 +16,7 @@ public class Main {
 		Server server = new Server();
 		
 		// YOUR CODE:  Create a smartphone, using your UVa ID as the device identifier (i.e., replace msg8u with your ID).
-		Smartphone smartphone = new Smartphone("msg8u");
+		Smartphone smartphone = new Smartphone("sr7cb");
 		
 		// Create a simulator to do various things with our smartphone.
 		Simulator simulator = new Simulator(smartphone);
@@ -37,13 +37,26 @@ public class Main {
 		// Let's write the location data to an XML file so that we can send it to the server for further processing.
 		// An XML file is started for you below, including the DTD declaration at the top of the XML file that links
 		// your XML file to your DTD. Read each line and make sure you understand what is going on.
-		File xmlFile = new File("src/sys2202/examples/homework3/locations.xml");
+		File xmlFile = new File("src/sys2202/homework3/locations.xml");
 		PrintWriter xmlFileWriter = new PrintWriter(xmlFile);
 		xmlFileWriter.write("<!DOCTYPE locations SYSTEM \"locations.dtd\">\n");
 		
 		// YOUR CODE:  Iterate over the location data and write all data to the XML file using xmlFileWriter. The XML
 		// that you write to the file must conform to your DTD or subsequent steps will not work.
-		
+			xmlFileWriter.write("<locations>\n");
+			
+			for(int i = 0; i < locationData.size(); ++i) {
+				LocationDatum location = locationData.get(i);
+				xmlFileWriter.write("\t<LocationDatum>\n");
+				xmlFileWriter.write("\t\t<latitude>" + location.getLatitude() + "</latitude>\n");
+				xmlFileWriter.write("\t\t<longitude>" + location.getLongitude() + "</longitude>\n");
+				xmlFileWriter.write("\t\t<accuracy>" + location.getAccuracyInMeters() + "</accuracy>\n");
+				xmlFileWriter.write("\t\t<deviceId>" + location.getDeviceId() + "</deviceId>\n");
+				xmlFileWriter.write("\t\t<timestamp>" + location.getTimestamp() + "</timestamp>\n");
+				xmlFileWriter.write("\t</LocationDatum>\n");
+			}
+			xmlFileWriter.write("</locations>\n");
+
 		// ...
 		// ...
 		// ...
