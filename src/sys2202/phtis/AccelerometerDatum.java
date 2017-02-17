@@ -49,6 +49,6 @@ public class AccelerometerDatum extends Datum {
 		}
 		
 		AccelerometerDatum acceleration = (AccelerometerDatum)o;
-		return x == acceleration.x && y == acceleration.y && x == acceleration.z;
+		return x == acceleration.x && y == acceleration.y && z == acceleration.z;
 	}
 }
