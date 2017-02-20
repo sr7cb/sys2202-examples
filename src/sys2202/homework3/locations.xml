@@ -1,45 +1,115 @@
-<!DOCTYPE locations SYSTEM "locations.dtd">
-<locations>
+<!DOCTYPE data SYSTEM "locations.dtd">
+<data>
 	<LocationDatum>
-		<latitude>88.20695110389167</latitude>
-		<longitude>12.688675222147992</longitude>
-		<accuracy>0.25719799458918424</accuracy>
+		<latitude>-26.437382680902402</latitude>
+		<longitude>-18.69944016531045</longitude>
+		<accuracy>0.26183174338324144</accuracy>
 		<deviceId>sr7cb</deviceId>
-		<timestamp>2017-02-11T02:12:21.327</timestamp>
+		<timestamp>2017-02-19T22:32:33.857</timestamp>
 	</LocationDatum>
 	<LocationDatum>
-		<latitude>88.20733165099544</latitude>
-		<longitude>12.689364944332002</longitude>
-		<accuracy>12.76704336265087</accuracy>
+		<latitude>-26.437218734301233</latitude>
+		<longitude>-18.6991889075265</longitude>
+		<accuracy>8.892991089377134</accuracy>
 		<deviceId>sr7cb</deviceId>
-		<timestamp>2017-02-11T02:12:21.369</timestamp>
+		<timestamp>2017-02-19T22:32:33.914</timestamp>
 	</LocationDatum>
 	<LocationDatum>
-		<latitude>88.2077124190844</latitude>
-		<longitude>12.68994556086838</longitude>
-		<accuracy>11.254269350157827</accuracy>
+		<latitude>-26.436343923901617</latitude>
+		<longitude>-18.69824910472059</longitude>
+		<accuracy>11.57029008133334</accuracy>
 		<deviceId>sr7cb</deviceId>
-		<timestamp>2017-02-11T02:12:22.370</timestamp>
+		<timestamp>2017-02-19T22:32:34.915</timestamp>
 	</LocationDatum>
 	<LocationDatum>
-		<latitude>88.20862618484752</latitude>
-		<longitude>12.690530831083489</longitude>
-		<accuracy>12.75120123021695</accuracy>
+		<latitude>-26.43595208550124</latitude>
+		<longitude>-18.69798131478571</longitude>
+		<accuracy>7.649880115822227</accuracy>
 		<deviceId>sr7cb</deviceId>
-		<timestamp>2017-02-11T02:12:23.370</timestamp>
+		<timestamp>2017-02-19T22:32:35.916</timestamp>
 	</LocationDatum>
 	<LocationDatum>
-		<latitude>88.20952702650487</latitude>
-		<longitude>12.69126717629952</longitude>
-		<accuracy>8.885737282205719</accuracy>
+		<latitude>-26.43546933175379</latitude>
+		<longitude>-18.697729328258266</longitude>
+		<accuracy>8.133966129400875</accuracy>
 		<deviceId>sr7cb</deviceId>
-		<timestamp>2017-02-11T02:12:24.371</timestamp>
+		<timestamp>2017-02-19T22:32:36.916</timestamp>
 	</LocationDatum>
 	<LocationDatum>
-		<latitude>88.21004936859711</latitude>
-		<longitude>12.692076625868246</longitude>
-		<accuracy>10.31987030451988</accuracy>
+		<latitude>-26.435249671618642</latitude>
+		<longitude>-18.69725665520496</longitude>
+		<accuracy>9.052140009491623</accuracy>
 		<deviceId>sr7cb</deviceId>
-		<timestamp>2017-02-11T02:12:25.372</timestamp>
+		<timestamp>2017-02-19T22:32:37.916</timestamp>
 	</LocationDatum>
-</locations>
+	<AccelerometerDatum>
+		<X>-0.8284159953909396</X>
+		<Y>-0.7605613849239006</Y>
+		<Z>0.6264750271531003</Z>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-19T22:32:38.916</timestamp>
+	</AccelerometerDatum>
+	<AccelerometerDatum>
+		<X>-0.12292205762909214</X>
+		<Y>0.3615403993997339</Y>
+		<Z>-0.7464637829220586</Z>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-19T22:32:39.017</timestamp>
+	</AccelerometerDatum>
+	<AccelerometerDatum>
+		<X>0.9410735795221601</X>
+		<Y>-0.4463686423627773</Y>
+		<Z>0.030245815486185545</Z>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-19T22:32:39.117</timestamp>
+	</AccelerometerDatum>
+	<AccelerometerDatum>
+		<X>-0.8063247016042188</X>
+		<Y>-0.20445933586904252</Y>
+		<Z>0.8195469236279616</Z>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-19T22:32:39.217</timestamp>
+	</AccelerometerDatum>
+	<AccelerometerDatum>
+		<X>0.9531869327915758</X>
+		<Y>0.6575843530568639</Y>
+		<Z>0.01803271238953741</Z>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-19T22:32:39.317</timestamp>
+	</AccelerometerDatum>
+	<AccelerometerDatum>
+		<X>0.47896459489393184</X>
+		<Y>0.4338209044046557</Y>
+		<Z>-0.06355413548766542</Z>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-19T22:32:39.417</timestamp>
+	</AccelerometerDatum>
+	<AccelerometerDatum>
+		<X>-0.012272397818352765</X>
+		<Y>-0.10164687985051235</Y>
+		<Z>0.8151989146639762</Z>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-19T22:32:39.518</timestamp>
+	</AccelerometerDatum>
+	<AccelerometerDatum>
+		<X>-0.6329948503060958</X>
+		<Y>-0.1202856186335477</Y>
+		<Z>-0.48781977198639415</Z>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-19T22:32:39.619</timestamp>
+	</AccelerometerDatum>
+	<AccelerometerDatum>
+		<X>-0.03350135360249773</X>
+		<Y>-0.1842923552933884</Y>
+		<Z>0.7660477419335858</Z>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-19T22:32:39.719</timestamp>
+	</AccelerometerDatum>
+	<AccelerometerDatum>
+		<X>-0.9918724083731305</X>
+		<Y>-0.2444867458565232</Y>
+		<Z>-0.26391206964921166</Z>
+		<deviceId>sr7cb</deviceId>
+		<timestamp>2017-02-19T22:32:39.819</timestamp>
+	</AccelerometerDatum>
+</data>

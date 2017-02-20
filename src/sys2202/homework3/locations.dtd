@@ -1,7 +1,12 @@
-<!ELEMENT locations (LocationDatum+)>
+<!ELEMENT data ((LocationDatum | AccelerometerDatum)+)>
 <!ELEMENT LocationDatum (latitude, longitude, accuracy, deviceId, timestamp)>
+<!ELEMENT AccelerometerDatum (X, Y, Z, deviceId, timestamp)>
 <!ELEMENT latitude (#PCDATA)>
 <!ELEMENT longitude (#PCDATA)>
 <!ELEMENT accuracy (#PCDATA)> 
+<!ELEMENT X (#PCDATA)>
+<!ELEMENT Y (#PCDATA)>
+<!ELEMENT Z (#PCDATA)> 
 <!ELEMENT deviceId (#PCDATA)> 
 <!ELEMENT timestamp (#PCDATA)> 
+

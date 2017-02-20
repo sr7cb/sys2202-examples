@@ -26,7 +26,7 @@ public class ConnectionExample {
 		String host = "localhost";
 		
 		// Port:  Obtain the port from within PgAdmin (right-click the server and select the Connection tab). Yours may differ from what is used below.
-		int port = 5433; 
+		int port = 5432; 
 		
 		// Database:  Enter the database you wish to work with (also shown within PgAdmin).
 		String database = "postgres";
@@ -37,7 +37,7 @@ public class ConnectionExample {
 		// Open the connection to the PostgreSQL server. Be sure to enter your password below.
 		Properties props = new Properties();
 		props.setProperty("user","postgres");
-		props.setProperty("password","");
+		props.setProperty("password","pgAdmin3");
 		props.setProperty("ssl","false");
 		Connection connection = DriverManager.getConnection(url, props);
 		

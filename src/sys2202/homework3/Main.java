@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import sys2202.phtis.AccelerometerDatum;
 import sys2202.phtis.LocationDatum;
 import sys2202.phtis.simulation.Simulator;
 import sys2202.phtis.simulation.smartphone.Smartphone;
@@ -23,27 +24,30 @@ public class Main {
 		
 		// Take our smartphone for a drive to generate some location data.
 		simulator.driveWithPhone();
+		simulator.shakePhone();
 
 		// We've now generated some location data on the smartphone, and the data are stored in 
 		// the local data store. Take a look!
 		ArrayList<LocationDatum> locationData = smartphone.getLocalDataStore().getLocationData();
-		for(int i = 0; i < locationData.size(); ++i) {
+		/*for(int i = 0; i < locationData.size(); ++i) {
 			
 			LocationDatum location = locationData.get(i);
 			System.out.println(location.toString());
 			
-		}
+		}*/
+		
+		ArrayList<AccelerometerDatum> accelerometerData = smartphone.getLocalDataStore().getAccelerometerData();
 				
 		// Let's write the location data to an XML file so that we can send it to the server for further processing.
 		// An XML file is started for you below, including the DTD declaration at the top of the XML file that links
 		// your XML file to your DTD. Read each line and make sure you understand what is going on.
 		File xmlFile = new File("src/sys2202/homework3/locations.xml");
 		PrintWriter xmlFileWriter = new PrintWriter(xmlFile);
-		xmlFileWriter.write("<!DOCTYPE locations SYSTEM \"locations.dtd\">\n");
+		xmlFileWriter.write("<!DOCTYPE data SYSTEM \"locations.dtd\">\n");
 		
 		// YOUR CODE:  Iterate over the location data and write all data to the XML file using xmlFileWriter. The XML
 		// that you write to the file must conform to your DTD or subsequent steps will not work.
-			xmlFileWriter.write("<locations>\n");
+			xmlFileWriter.write("<data>\n");
 			
 			for(int i = 0; i < locationData.size(); ++i) {
 				LocationDatum location = locationData.get(i);
@@ -55,7 +59,17 @@ public class Main {
 				xmlFileWriter.write("\t\t<timestamp>" + location.getTimestamp() + "</timestamp>\n");
 				xmlFileWriter.write("\t</LocationDatum>\n");
 			}
-			xmlFileWriter.write("</locations>\n");
+			for(int i = 0; i < accelerometerData.size(); ++i) {
+				AccelerometerDatum accel = accelerometerData.get(i);
+				xmlFileWriter.write("\t<AccelerometerDatum>\n");
+				xmlFileWriter.write("\t\t<X>" + accel.getX() + "</X>\n");
+				xmlFileWriter.write("\t\t<Y>" + accel.getY() + "</Y>\n");
+				xmlFileWriter.write("\t\t<Z>" + accel.getZ() + "</Z>\n");
+				xmlFileWriter.write("\t\t<deviceId>" + accel.getDeviceId() + "</deviceId>\n");
+				xmlFileWriter.write("\t\t<timestamp>" + accel.getTimestamp() + "</timestamp>\n");
+				xmlFileWriter.write("\t</AccelerometerDatum>\n");
+			}
+			xmlFileWriter.write("</data>\n");
 
 		// ...
 		// ...
@@ -68,3 +82,31 @@ public class Main {
 		server.processXmlFile(xmlFile);
 	}
 }
+
+//old json stuff
+/*NodeList nl = parsedXml.getElementsByTagName("*");
++			jsonFileWriter.write("{\n\t\"locations\":{ \n");
++			jsonFileWriter.write(" \t\t\"LocationDatum\":[{ \n");
++			for(int i = 0; i < nl.getLength(); i++){
++				Element el = (Element)nl.item(i);
++			
++				if(el.getNodeName().contains("LocationDatum")){
++					jsonFileWriter.write("\t\t\t\"" + "latitude\":" + "\"" +
++				el.getElementsByTagName("latitude").item(0).getTextContent()+ "\"," + "\n");
++					jsonFileWriter.write("\t\t\t\"" + "longitude\":" +  "\"" +
++							el.getElementsByTagName("longitude").item(0).getTextContent() + "\"," + "\n");
++					jsonFileWriter.write("\t\t\t\"" + "accuracy\":" + "\"" +
++							el.getElementsByTagName("accuracy").item(0).getTextContent()+ "\","+ "\n");
++					jsonFileWriter.write("\t\t\t\"" + "deviceId\":" + "\"" +
++							el.getElementsByTagName("deviceId").item(0).getTextContent()+ "\","+ "\n");
++					jsonFileWriter.write("\t\t\t\"" + "timestamp\":" + "\"" +
++							el.getElementsByTagName("timestamp").item(0).getTextContent()+ "\""+ "\n");
++					if(i < 31) {
++					jsonFileWriter.write("\t\t\t},{\n");
++					}
++				}
++				
++			}
++			jsonFileWriter.write("\t\t}] \n");
++			jsonFileWriter.write("\t} \n");
++			jsonFileWriter.write("} \n");*/

@@ -2,6 +2,11 @@ package sys2202.homework3;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Properties;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -28,66 +33,57 @@ public class Server {
 		// Start a JSON file. We're going to write location data to this file
 		// after we extract the location data from the XML file that has been
 		// passed into this method.
-		File jsonFile = new File("src/sys2202/homework3/locations.json");
-		PrintWriter jsonFileWriter = new PrintWriter(jsonFile);
-
-		// Set up an XML parser and parse the XML file that has been passed to
-		// this method.
 		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 		documentBuilderFactory.setValidating(true);
 		DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 		Document parsedXml = documentBuilder.parse(xmlFile);
-
-		// Iterate through the parsed XML document (parsedXml) and write the equivalent 
-		// JSON to file using jsonFileWriter. For example, consider the following XML fragment:
-		// 
-		// <people>
-		//   <person>
-		//     <name>Matt</name>
-		//   </person>
-		// </people>
-		//
-		// This XML could be written to JSON as the following:
-		//
-		// [
-		//   {
-		//     "name":"Matt"
-		//   }
-		// ]
-		//
-		// YOUR CODE:  Iterate through the parsed XML document (parsedXml) and write the equivalent 
-		// JSON to file using jsonFileWriter.
-			NodeList nl = parsedXml.getElementsByTagName("*");
-			jsonFileWriter.write("{\n\t\"locations\":{ \n");
-			jsonFileWriter.write(" \t\t\"LocationDatum\":[{ \n");
-			for(int i = 0; i < nl.getLength(); i++){
-				Element el = (Element)nl.item(i);
-			
-				if(el.getNodeName().contains("LocationDatum")){
-					jsonFileWriter.write("\t\t\t\"" + "latitude\":" + "\"" +
-				el.getElementsByTagName("latitude").item(0).getTextContent()+ "\"," + "\n");
-					jsonFileWriter.write("\t\t\t\"" + "longitude\":" +  "\"" +
-							el.getElementsByTagName("longitude").item(0).getTextContent() + "\"," + "\n");
-					jsonFileWriter.write("\t\t\t\"" + "accuracy\":" + "\"" +
-							el.getElementsByTagName("accuracy").item(0).getTextContent()+ "\","+ "\n");
-					jsonFileWriter.write("\t\t\t\"" + "deviceId\":" + "\"" +
-							el.getElementsByTagName("deviceId").item(0).getTextContent()+ "\","+ "\n");
-					jsonFileWriter.write("\t\t\t\"" + "timestamp\":" + "\"" +
-							el.getElementsByTagName("timestamp").item(0).getTextContent()+ "\""+ "\n");
-					if(i < 31) {
-					jsonFileWriter.write("\t\t\t},{\n");
-					}
-				}
-				
-			}
-			jsonFileWriter.write("\t\t}] \n");
-			jsonFileWriter.write("\t} \n");
-			jsonFileWriter.write("} \n");
-		// ...
-		// ...
-		// ...
+		NodeList nl = parsedXml.getElementsByTagName("*");
 		
-		// Be sure to close your JSON file!
-		jsonFileWriter.close();
+		Class.forName("org.postgresql.Driver");
+		
+		// Host:  The host is "localhost" if you installed PostgreSQL on your machine.
+		String host = "localhost";
+		
+		// Port:  Obtain the port from within PgAdmin (right-click the server and select the Connection tab). Yours may differ from what is used below.
+		int port = 5432; 
+		
+		// Database:  Enter the database you wish to work with (also shown within PgAdmin).
+		String database = "postgres";
+		
+		// Form the connection URL.
+		String url = "jdbc:postgresql://" + host + ":" + port  + "/" + database;
+		
+		// Open the connection to the PostgreSQL server. Be sure to enter your password below.
+		Properties props = new Properties();
+		props.setProperty("user","postgres");
+		props.setProperty("password","pgAdmin3");
+		props.setProperty("ssl","false");
+		Connection connection = DriverManager.getConnection(url, props);
+		
+		// Execute an SQL INSERT statement on the PostgreSQL server. This statement inserts two rows into the fruit table.
+		Statement insert = connection.createStatement();
+		for(int i = 0; i < nl.getLength(); i++){
+			Element el = (Element)nl.item(i);
+			if(el.getNodeName().contains("LocationDatum")){
+				insert.execute("INSERT INTO data.location_table\n (latitude, longitude, accuracy, deviceId, time_stamp)\n VALUES" 
+			+"(" + el.getElementsByTagName("latitude").item(0).getTextContent() + "," +
+						el.getElementsByTagName("longitude").item(0).getTextContent() + "," +
+						el.getElementsByTagName("accuracy").item(0).getTextContent() + ", " + "'" +
+						el.getElementsByTagName("deviceId").item(0).getTextContent() +  "'" + ", " + "'" +
+						el.getElementsByTagName("timestamp").item(0).getTextContent() + "'" + ");");
+			}
+		}
+		for(int i = 0; i < nl.getLength(); i++){
+			Element el = (Element)nl.item(i);
+			if(el.getNodeName().contains("AccelerometerDatum")){
+				insert.execute("INSERT INTO data.accelerometer_table \n (X, Y, Z, deviceId, time_stamp)\n VALUES" +
+			"(" + el.getElementsByTagName("X").item(0).getTextContent() + "," +
+				el.getElementsByTagName("Y").item(0).getTextContent() + ", " +
+				el.getElementsByTagName("Z").item(0).getTextContent() +  ", " + "'" +
+				el.getElementsByTagName("deviceId").item(0).getTextContent() +  "'" + ", " + "'" +
+				el.getElementsByTagName("timestamp").item(0).getTextContent() + "'" + ");");
+			}
+		}
+		insert.close();
 	}
 }
