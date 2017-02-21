@@ -7,19 +7,7 @@ public class ConnectionExample {
 
 	public static void main(String[] args) throws Exception {
 		
-		// The following example assumes your database is configured as follows:
-		//
-		// CREATE SCHEMA my_test_schema;
-        //
-        // CREATE TABLE my_test_schema.fruit
-        // (
-        //   id SERIAL PRIMARY KEY,
-        //   name CHARACTER VARYING NOT NULL,
-        //   color CHARACTER VARYING CHECK (color = 'Red' OR color = 'Yellow')
-        // );
-		// 
-		// You will need to run the above SQL in order for the following code to work.
-		
+		// Load the PostgreSQL driver into your Java program.
 		Class.forName("org.postgresql.Driver");
 		
 		// Host:  The host is "localhost" if you installed PostgreSQL on your machine.
@@ -34,12 +22,23 @@ public class ConnectionExample {
 		// Form the connection URL.
 		String url = "jdbc:postgresql://" + host + ":" + port  + "/" + database;
 		
-		// Open the connection to the PostgreSQL server. Be sure to enter your password below.
+		// Open the connection to the PostgreSQL server. Be sure to replace "test" with your password below.
 		Properties props = new Properties();
 		props.setProperty("user","postgres");
-		props.setProperty("password","");
+		props.setProperty("password","test");
 		props.setProperty("ssl","false");
 		Connection connection = DriverManager.getConnection(url, props);
+		
+		// Create a schema and table
+		Statement createSchemaAndTable = connection.createStatement();
+		createSchemaAndTable.execute("CREATE SCHEMA my_test_schema;\n" + 
+		                             "CREATE TABLE my_test_schema.fruit\n" + 
+                                     "(\n" + 
+                                     "  id SERIAL PRIMARY KEY,\n" + 
+                                     "  name CHARACTER VARYING NOT NULL,\n" + 
+                                     "  color CHARACTER VARYING CHECK (color = 'Red' OR color = 'Yellow')\n" + 
+                                     ");");
+		createSchemaAndTable.close();
 		
 		// Execute an SQL INSERT statement on the PostgreSQL server. This statement inserts two rows into the fruit table.
 		Statement insert = connection.createStatement();
