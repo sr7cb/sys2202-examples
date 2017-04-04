@@ -49,7 +49,7 @@ public class ThreadedAgeCounting {
 		Thread thread6 = new Thread(runner6);
 		thread6.start();
 		
-		AgeCountRunner runner7 = new AgeCountRunner(ages, 73, 100);
+		AgeCountRunner runner7 = new AgeCountRunner(ages, 73, 84);
 		Thread thread7 = new Thread(runner7);
 		thread7.start();
 		

@@ -42,7 +42,9 @@ public class AgeCounting {
 		for(int i = 0; i < ages.size(); ++i)
 		{
 		    if(ages.get(i) == age)
+		    {
 		    	count = count + 1;
+		    }
 		}
 		
 		return count;
