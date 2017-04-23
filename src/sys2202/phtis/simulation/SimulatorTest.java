@@ -2,8 +2,8 @@ package sys2202.phtis.simulation;
 
 import java.util.ArrayList;
 
+import Homework6.LocationDatum;
 import sys2202.phtis.AccelerometerDatum;
-import sys2202.phtis.LocationDatum;
 import sys2202.phtis.simulation.smartphone.Smartphone;
 
 public class SimulatorTest {

@@ -2,6 +2,8 @@ package sys2202.phtis;
 
 import java.time.LocalDateTime;
 
+import Homework6.LocationDatum;
+
 public class Main {
 
 	public static void main(String[] args) {

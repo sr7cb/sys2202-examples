@@ -2,9 +2,9 @@ package sys2202.phtis.simulation.smartphone;
 
 import java.util.ArrayList;
 
+import Homework6.LocationDatum;
 import sys2202.phtis.AccelerometerDatum;
 import sys2202.phtis.Datum;
-import sys2202.phtis.LocationDatum;
 
 public class LocalDataStore implements ISensorChangeListener {
 

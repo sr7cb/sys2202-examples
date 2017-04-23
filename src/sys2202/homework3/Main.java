@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import Homework6.LocationDatum;
 import sys2202.phtis.AccelerometerDatum;
-import sys2202.phtis.LocationDatum;
 import sys2202.phtis.simulation.Simulator;
 import sys2202.phtis.simulation.smartphone.Smartphone;
 
